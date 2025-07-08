@@ -1,0 +1,23 @@
+name: Trivy Image Scan
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - '**/Dockerfile'
+  pull_request:
+
+jobs:
+  trivy-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build Docker image
+        run: docker build -t myrepo/service-a:${{ github.sha }} .
+      - name: Scan image with Trivy
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'myrepo/service-a:${{ github.sha }}'
+          format: 'table'
+          exit-code: '1'
+          severity: 'CRITICAL,HIGH'
