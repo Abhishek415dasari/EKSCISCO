@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: trivy-system
+---
+apiVersion: helm.sh/v3
+kind: HelmRelease
+metadata:
+  name: trivy-operator
+  namespace: trivy-system
+spec:
+  chart:
+    repository: https://aquasecurity.github.io/helm-charts/
+    name: trivy-operator
+    version: 0.22.1
+  values:
+    operator:
+      admission:
+        vulnerability:
+          severity: "CRITICAL,HIGH"
+          action: "block"
+      scanJob:
+        timeout: 10m
