@@ -1,0 +1,20 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: my-service
+  namespace: default
+spec:
+  hosts:
+    - "my-service.example.com"
+  gateways:
+    - istio-system/istio-ingressgateway
+  http:
+    - route:
+        - destination:
+            host: my-service
+            subset: v1
+          weight: 80
+        - destination:
+            host: my-service
+            subset: v2
+          weight: 20
