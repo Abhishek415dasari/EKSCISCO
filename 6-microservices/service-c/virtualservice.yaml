@@ -1,0 +1,15 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: service-c
+spec:
+  hosts:
+    - "service-c.example.com"
+  gateways:
+    - istio-system/istio-ingressgateway
+  http:
+    - route:
+        - destination:
+            host: service-c
+            port:
+              number: 80
