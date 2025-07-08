@@ -1,0 +1,25 @@
+# Example values for Helm chart: https://github.com/falcosecurity/charts/tree/master/charts/falco
+# Use with: helm upgrade --install falco falcosecurity/falco -n falco -f falco-helm-values.yaml
+falco:
+  rulesFile:
+    enabled: true
+    customRules:
+      - /etc/falco/falco_rules.d/custom-shell-rule.yaml
+      - /etc/falco/falco_rules.d/custom-etc-write-rule.yaml
+
+  grpc:
+    enabled: true
+    listenPort: 5060
+
+  # Enable Falcosidekick for flexible alert forwarding
+  falcosidekick:
+    enabled: true
+    config:
+      loki:
+        enabled: true
+        hostPort: "http://loki.observability.svc.cluster.local:3100"
+        minimumpriority: "warning"
+      slack:
+        enabled: true
+        webhookurl: "<SLACK_WEBHOOK_URL>"  # replace with your Slack webhook
+        minimumpriority: "warning"
