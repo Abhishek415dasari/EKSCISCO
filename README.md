@@ -3,7 +3,7 @@
 
 This repository demonstrates a production-ready, open-source reference platform for running microservices on AWS EKS (Elastic Kubernetes Service) using modern DevOps and Cloud Native best practices.
 
-## 🚀 **Platform Features**
+## **Platform Features**
 
 - **Infrastructure as Code**: Automated AWS provisioning with Terraform (VPC, EKS, IAM, networking, more)
 - **GitOps Workflow**: Declarative, auditable, and automated deployment using Argo CD
@@ -18,7 +18,7 @@ This repository demonstrates a production-ready, open-source reference platform 
 
 ---
 
-## 📦 **Repository Structure**
+## **Repository Structure**
 
 
 1-terraform-infra/ # Terraform modules and IaC for AWS EKS, VPC, IAM, Karpenter, etc.
@@ -34,7 +34,7 @@ This repository demonstrates a production-ready, open-source reference platform 
 
 ---
 
-## 🛠️ **How To Use**
+## **How do we make To Use**
 
 1. **Provision Infrastructure**
    - Use `1-terraform-infra/` with Terraform to deploy foundational AWS resources and EKS cluster.
@@ -51,7 +51,7 @@ This repository demonstrates a production-ready, open-source reference platform 
 
 ---
 
-## 📈 **Why This Platform?**
+##  **Why This Platform?**
 
 - **Secure by Default**: Zero trust, runtime detection, and strong policies
 - **Scalable & Automated**: No manual EC2/node group management, auto-provisioning with Karpenter
@@ -60,7 +60,7 @@ This repository demonstrates a production-ready, open-source reference platform 
 
 ---
 
-## 📚 **References**
+## **Sources and References**
 
 - [AWS EKS Documentation](https://docs.aws.amazon.com/eks/latest/userguide/what-is-eks.html)
 - [Terraform AWS Provider](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
