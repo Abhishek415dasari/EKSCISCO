@@ -4,4 +4,4 @@ metadata:
   name: karpenter-controller
   namespace: karpenter
   annotations:
-  eks.amazonaws.com/role-arn: arn:aws:iam::<Add AWS ACCOUNT_ID>:role/KarpenterControllerRole
+eks.amazonaws.com/role-arn: arn:aws:iam::<Add AWS ACCOUNT_ID>:role/KarpenterControllerRole
