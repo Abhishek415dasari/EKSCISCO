@@ -1,0 +1,6 @@
+- rule: Write below etc
+  desc: Detect writing to files under /etc
+  condition: evt.type = open and fd.name startswith "/etc" and evt.dir = "O_WRONLY"
+  output: "File below /etc opened for writing (user=%user.name command=%proc.cmdline file=%fd.name)"
+  priority: WARNING
+  tags: [filesystem, mitre_persistence]
