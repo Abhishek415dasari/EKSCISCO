@@ -1,0 +1,20 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: trivy-image-scan
+  namespace: observability
+spec:
+  schedule: "0 1 * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: trivy
+              image: aquasec/trivy:latest
+              args:
+                - image
+                - --exit-code=1
+                - --severity=HIGH,CRITICAL
+                - your-dockerhub-org/service-a:latest
+          restartPolicy: OnFailure
