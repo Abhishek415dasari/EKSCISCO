@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: service-c
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: service-c
+  template:
+    metadata:
+      labels:
+        app: service-c
+        version: v1
+    spec:
+      containers:
+        - name: service-c
+          image: your-dockerhub-org/service-c:1.0.0
+          ports:
+            - containerPort: 8080
+          resources:
+            requests:
+              cpu: "200m"
+              memory: "256Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
