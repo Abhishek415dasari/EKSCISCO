@@ -1,0 +1,12 @@
+collector:
+  enabled: true
+  replicas: 1
+query:
+  enabled: true
+  replicas: 1
+agent:
+  enabled: false
+storage:
+  type: memory
+ingester:
+  enabled: true
