@@ -1,0 +1,11 @@
+controller:
+  serviceAccount:
+    create: false
+    name: karpenter-controller
+settings:
+  aws:
+    clusterName: my-eks-cluster
+    defaultInstanceProfile: KarpenterNodeInstanceProfile-my-eks-cluster
+    interruptionQueueName: karpenter-interruption-queue
+webhook:
+  enabled: true
